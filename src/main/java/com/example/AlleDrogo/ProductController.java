@@ -7,10 +7,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/")
 public class ProductController {
 
     private final ProductService productService;
+
+    @GetMapping
+    String index(){
+        return "index";
+    }
 
 
     public ProductController(ProductService productService) {

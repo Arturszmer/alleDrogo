@@ -16,14 +16,14 @@ public class AlleDrogoApplication {
 	@Bean
 	CommandLineRunner runner(ProductService productService){
 		return args -> {
-//			productService.addProduct(new Product
-//					("Gitara Fender Stratocaster",
-//					"Gitara elektryczna wyprodukowana w 2009 roku",
-//					8500));
-//			productService.addProduct(new Product
-//					("Gitara Gibson Les Paul",
-//					"Gitara elektryczna wyprodukowana w 1999 roku",
-//					12000));
+			productService.addProduct(new Product
+					("Gitara Fender Stratocaster",
+					"Gitara elektryczna wyprodukowana w 2009 roku",
+					8500));
+			productService.addProduct(new Product
+					("Gitara Gibson Les Paul",
+					"Gitara elektryczna wyprodukowana w 1999 roku",
+					12000));
 		};
 	}
 
