@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class AlleDrogoApplication {
+public class
+AlleDrogoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AlleDrogoApplication.class, args);

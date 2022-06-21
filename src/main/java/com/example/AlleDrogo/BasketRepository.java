@@ -15,6 +15,7 @@ public class BasketRepository {
 
     private final List<Product> basket = new ArrayList<>();
 
+
     public void addToBasket(Product product){
         basket.add(product);
     }
@@ -27,9 +28,10 @@ public class BasketRepository {
         return Collections.unmodifiableList(basket);
     }
 
-    void makeOrder(Basket basket, Order order, Order adressShipment){
-        List<Product> order1 = basket.getAllBasketProducts();
-        order.addOrder(adressShipment, (Basket) order1);
+    void confirmBasket(){
+
     }
+
+
 
 }

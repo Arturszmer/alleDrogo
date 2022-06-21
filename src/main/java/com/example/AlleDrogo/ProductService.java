@@ -4,11 +4,12 @@ import com.example.AlleDrogo.model.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Iterator;
 import java.util.List;
 
-@Component
+@Service
 public class ProductService{
 
     private static final Logger log = LoggerFactory.getLogger(ProductService.class);
