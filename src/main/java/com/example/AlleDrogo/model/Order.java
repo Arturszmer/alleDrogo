@@ -10,16 +10,12 @@ import java.util.Map;
 
 public class Order {
 
-    private final Map<String, Basket> productsInOrder = new HashMap<>();
+    private final List<Product> productsInOrder = new ArrayList<>();
 
     private final String shipmentAddress;
 
     public Order(String shipmentAddress) {
         this.shipmentAddress = shipmentAddress;
-    }
-
-    public void addOrder(Order shipmentAddress, Basket basket){
-        productsInOrder.put(shipmentAddress.shipmentAddress, basket);
     }
 
 

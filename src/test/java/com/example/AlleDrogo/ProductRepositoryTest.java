@@ -35,12 +35,14 @@ class ProductRepositoryTest {
     }
 
     @Test
-    public void nameOfTest(){
+    public void shouldShowAllProducts(){
     //given
-
+        Product product1 = new Product("Fender Stratocaster", "Gitara elektryczna", 3500);
     //when
-
+        productRepository.addProduct(product1);
     //then
+        List<Product> list = productRepository.getAllProducts();
+        assertThat(list.get(0)).isSameAs(product1);
     }
 
 
