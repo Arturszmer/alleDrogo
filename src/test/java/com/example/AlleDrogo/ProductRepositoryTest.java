@@ -18,6 +18,10 @@ class ProductRepositoryTest {
 
     @Autowired ProductRepository productRepository;
 
+    @BeforeEach
+    public void setup(){
+        productRepository.clear();
+    }
 
     @Test
     public void addNewProduct(){

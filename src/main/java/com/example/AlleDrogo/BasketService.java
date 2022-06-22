@@ -30,8 +30,12 @@ public class BasketService {
         return Collections.unmodifiableList(basketRepository.getBasket());
     }
 
-    public void confirmBasket(String shipmentAddress, List<Product> products) {
+    public Order confirmBasket(String shipmentAddress) {
 
-        basketRepository.confirmBasket(shipmentAddress);
+        return basketRepository.confirmBasket(shipmentAddress);
+    }
+
+    public void clear() {
+        basketRepository.clear();
     }
 }

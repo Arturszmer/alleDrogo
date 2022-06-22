@@ -2,6 +2,7 @@ package com.example.AlleDrogo;
 
 import com.example.AlleDrogo.model.Order;
 import com.example.AlleDrogo.model.Product;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,6 +21,11 @@ class BasketRepositoryTest {
     BasketRepository basketRepository;
     @Autowired
     OrderRepository orderRepository;
+
+    @BeforeEach
+    public void setup(){
+        basketRepository.clear();
+    }
 
     @Test
     public void shouldRemoveSpecificProductFromBasket() {
@@ -61,6 +67,7 @@ class BasketRepositoryTest {
         //then
             assertThat(list1.getProductsInOrder().size()).isEqualTo(2);
             assertThat(list1.getShipmentAddress()).isEqualTo("Sosnowiec");
+            assertThat(basketRepository.getBasket()).isEmpty();
         }
 
 

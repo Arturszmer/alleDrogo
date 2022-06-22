@@ -1,30 +1,27 @@
 package com.example.AlleDrogo;
 
 import com.example.AlleDrogo.model.Product;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("products")
 public class ProductController {
 
     private final ProductService productService;
-
-    @GetMapping
-    String index(){
-        return "index";
-    }
-
 
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
-    @GetMapping("/allProducts")
+
+    @GetMapping("/all")
     @ResponseBody
     Iterable<Product> getProducts(){
         return productService.getAllProducts();
+    }
+
+    @PostMapping("/addProduct")
+    void addProduct(@PathVariable String name, @PathVariable String description, @PathVariable Double price){
+        productService.addProduct(new Product(name, description, price));
     }
 }

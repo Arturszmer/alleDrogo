@@ -1,6 +1,8 @@
 package com.example.AlleDrogo;
 
+import com.example.AlleDrogo.model.Order;
 import com.example.AlleDrogo.model.Product;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,9 +21,16 @@ class BasketServiceTest {
     @Autowired
     BasketService basketService;
 
+    @BeforeEach
+    public void setup(){
+        basketService.clear();
+    }
+
+
     @Test
     void shouldAddToBasket(){
         //given
+
         Product product1 = new Product("Fender Stratocaster", "Gitara elektryczna", 3500);
         Product product2 = new Product("Gibson Les Paul", "Gitara elektryczna", 5000);
         //when
@@ -52,11 +61,10 @@ class BasketServiceTest {
         basketService.addProduct(product1);
         basketService.addProduct(product2);
         //when
-        List<Product> basket = basketService.getBasket();
-        basketService.confirmBasket("aafw", basket);
+        Order order = basketService.confirmBasket("Sosnowiec");
 
         //then
-        assertThat(basket.size()).isEqualTo(2);
+        assertThat(order.getProductsInOrder().size()).isEqualTo(2);
 
     }
 }

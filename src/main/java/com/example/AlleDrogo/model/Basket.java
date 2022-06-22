@@ -31,4 +31,8 @@ public class Basket {
         return clone;
     }
 
+    public void clear(){
+        basketProducts.clear();
+    }
+
 }

@@ -24,4 +24,7 @@ public class ProductRepository {
         return Collections.unmodifiableList(products);
     }
 
+    public void clear() {
+        products.clear();
+    }
 }

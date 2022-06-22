@@ -28,8 +28,4 @@ public class ProductService{
         return productRepository.getAllProducts();
     }
 
-
-
-
-
 }

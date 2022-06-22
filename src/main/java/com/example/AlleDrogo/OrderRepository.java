@@ -1,5 +1,6 @@
 package com.example.AlleDrogo;
 
+import com.example.AlleDrogo.model.Order;
 import com.example.AlleDrogo.model.Product;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,4 @@ public class OrderRepository {
     public List<Product> getOrders(){
         return Collections.unmodifiableList(order);
     }
-
 }

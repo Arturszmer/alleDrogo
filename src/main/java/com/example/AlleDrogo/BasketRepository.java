@@ -41,4 +41,8 @@ public class BasketRepository {
         }
         return clone;
     }
+
+    public void clear(){
+        basket.clear();
+    }
 }
