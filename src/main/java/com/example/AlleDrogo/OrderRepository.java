@@ -1,20 +1,18 @@
 package com.example.AlleDrogo;
 
-import com.example.AlleDrogo.model.Basket;
 import com.example.AlleDrogo.model.Product;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class OrderRepository {
 
     private final List<Product> order = new ArrayList<>();
 
-    public void addOrder(){
+    public void addOrder(List<Product> productsFromBasket){
+        order.addAll(productsFromBasket);
     }
 
     public List<Product> getOrders(){

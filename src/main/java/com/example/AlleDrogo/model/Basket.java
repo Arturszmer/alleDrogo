@@ -1,6 +1,7 @@
 package com.example.AlleDrogo.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Basket {
@@ -20,6 +21,14 @@ public class Basket {
         return "Basket{" +
                 "products=" + basketProducts +
                 '}';
+    }
+
+    public static List<Product> copy(List<Product> products){
+        List<Product> clone = new ArrayList<Product>(products.size());
+        for (Product product : products) {
+            clone.add(new Product(product));
+        }
+        return clone;
     }
 
 }

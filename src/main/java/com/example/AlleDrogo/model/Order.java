@@ -1,12 +1,7 @@
 package com.example.AlleDrogo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Order {
 
@@ -17,6 +12,29 @@ public class Order {
     public Order(String shipmentAddress) {
         this.shipmentAddress = shipmentAddress;
     }
+
+    public void addOrderProducts(List<Product> products){
+        productsInOrder.addAll(products);
+    }
+
+    public List<Product> getProductsInOrder() {
+        return productsInOrder;
+    }
+
+    public String getShipmentAddress() {
+        return shipmentAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "productsInOrder=" + productsInOrder +
+                ", shipmentAddress='" + shipmentAddress + '\'' +
+                '}';
+    }
+
+    // konstruktor kopiujący
+
 
 
 

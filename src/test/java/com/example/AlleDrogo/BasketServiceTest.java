@@ -18,8 +18,6 @@ class BasketServiceTest {
 
     @Autowired
     BasketService basketService;
-    @Autowired
-    OrderRepository orderRepository;
 
     @Test
     void shouldAddToBasket(){
@@ -55,12 +53,10 @@ class BasketServiceTest {
         basketService.addProduct(product2);
         //when
         List<Product> basket = basketService.getBasket();
-        basketService.confirmBasket();
-        List<Product> orders = orderRepository.getOrders();
+        basketService.confirmBasket("aafw", basket);
 
         //then
         assertThat(basket.size()).isEqualTo(2);
-        assertThat(orders.size()).isEqualTo(2);
 
     }
 }

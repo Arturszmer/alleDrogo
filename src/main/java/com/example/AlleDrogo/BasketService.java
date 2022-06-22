@@ -1,8 +1,11 @@
 package com.example.AlleDrogo;
 
+import com.example.AlleDrogo.model.Order;
 import com.example.AlleDrogo.model.Product;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -27,8 +30,8 @@ public class BasketService {
         return Collections.unmodifiableList(basketRepository.getBasket());
     }
 
-    public void confirmBasket() {
-        orderRepository.addOrder();
+    public void confirmBasket(String shipmentAddress, List<Product> products) {
 
+        basketRepository.confirmBasket(shipmentAddress);
     }
 }

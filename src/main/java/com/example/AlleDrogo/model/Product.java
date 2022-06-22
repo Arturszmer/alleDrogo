@@ -24,8 +24,14 @@ public class Product {
         this.price = price;
     }
 
-    public Product() {
+    public Product(){
 
+    }
+
+    public Product(Product product) {
+        this.name = getName();
+        this.description = getDescription();
+        this.price = getPrice();
     }
 
     public String getName() {
@@ -58,4 +64,5 @@ public class Product {
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
+
 }

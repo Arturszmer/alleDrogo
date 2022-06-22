@@ -1,6 +1,5 @@
 package com.example.AlleDrogo;
 
-import com.example.AlleDrogo.model.Basket;
 import com.example.AlleDrogo.model.Order;
 import com.example.AlleDrogo.model.Product;
 import org.springframework.stereotype.Repository;
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class BasketRepository {
@@ -28,10 +26,19 @@ public class BasketRepository {
         return Collections.unmodifiableList(basket);
     }
 
-    void confirmBasket(){
-
+    Order confirmBasket(String shipmentAdres){
+        Order order = new Order(shipmentAdres);
+        order.addOrderProducts(copy(basket));
+        basket.clear();
+        return order;
     }
 
 
-
+    public static List<Product> copy(List<Product> products) {
+        List<Product> clone = new ArrayList<>(products.size());
+        for (Product product : products) {
+            clone.add(new Product(product));
+        }
+        return clone;
+    }
 }
