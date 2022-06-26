@@ -14,7 +14,7 @@ public class ProductController {
     }
 
 
-    @GetMapping("/all")
+    @GetMapping
     @ResponseBody
     Iterable<Product> getProducts(){
         return productService.getAllProducts();
