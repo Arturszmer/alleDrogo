@@ -3,16 +3,20 @@ package com.example.AlleDrogo.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Product {
+public class Product implements Serializable {
 
     @Id
+    @Column(nullable = false, updatable = false)
     private String name;
     private String description;
     private double price;
+    private String imgUrl;
 
     @JsonCreator
     public Product(
