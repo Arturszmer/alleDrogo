@@ -20,7 +20,7 @@ class ProductRepositoryTest {
 
     @BeforeEach
     public void setup(){
-        productRepository.clear();
+        productRepository.deleteAll();
     }
 
     @Test
@@ -30,11 +30,11 @@ class ProductRepositoryTest {
         Product product2 = new Product("Gibson Les Paul", "Gitara elektryczna", 5000);
 
     //when
-        productRepository.addProduct(product1);
-        productRepository.addProduct(product2);
+        productRepository.save(product1);
+        productRepository.save(product2);
 
     //then
-        List<Product> list = productRepository.getAllProducts();
+        List<Product> list = productRepository.findAll();
         assertThat(list.size()).isEqualTo(2);
     }
 
@@ -42,12 +42,26 @@ class ProductRepositoryTest {
     public void shouldShowAllProducts(){
     //given
         Product product1 = new Product("Fender Stratocaster", "Gitara elektryczna", 3500);
-    //when
-        productRepository.addProduct(product1);
+        Product product2 = new Product("Gibson Les Paul", "Gitara elektryczna", 5000);
+
+        //when
+        productRepository.save(product1);
+        productRepository.save(product2);
+        int size = 2;
     //then
-        List<Product> list = productRepository.getAllProducts();
-        assertThat(list.get(0)).isSameAs(product1);
+        List<Product> list = productRepository.findAll();
+        assertThat(list.size()).isEqualTo(size);
     }
+
+    @Test
+    public void nameOfTest(){
+    //given
+
+    //when
+
+    //then
+    }
+
 
 
 }

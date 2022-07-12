@@ -16,7 +16,7 @@ public class Product implements Serializable {
     private String name;
     private String description;
     private double price;
-    private String imgUrl;
+//    private String imgUrl;
 
     @JsonCreator
     public Product(
