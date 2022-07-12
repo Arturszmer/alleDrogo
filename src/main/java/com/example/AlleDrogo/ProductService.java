@@ -14,6 +14,7 @@ public class ProductService{
 
     private final ProductRepository productRepository;
 
+    @Autowired
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
@@ -30,12 +31,12 @@ public class ProductService{
         return productRepository.findAll();
     }
 
-    public void deleteProductById(String name){
-        productRepository.deleteProductById(name);
+    public void deleteProductByName(String name){
+        productRepository.deleteProductByName(name);
     }
 
     public Product findProductByName(String name){
-        return productRepository.findProductById(name).orElseThrow(() ->
+        return productRepository.findProductByName(name).orElseThrow(() ->
                 new ProductNotFOundException("Product " + name + "doesn't exist"));
     }
 
