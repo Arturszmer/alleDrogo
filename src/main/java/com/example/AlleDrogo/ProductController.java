@@ -18,17 +18,17 @@ public class ProductController {
     }
 
 
-    @GetMapping
+    @GetMapping("all")
     @ResponseBody
     public ResponseEntity<List<Product>> getProducts(){
         List<Product> products = productService.getAllProducts();
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
-//    @GetMapping("/find/{name}")
-//    public ResponseEntity<Product> findProductByName(@PathVariable("name") String name){
-//        Product product = productService.findProductByName(name);
-//        return new ResponseEntity<>(product, HttpStatus.OK);
-//    }
+    @GetMapping("/find/{name}")
+    public ResponseEntity<Product> findProductByName(@PathVariable("name") String name){
+        Product product = productService.findProductByName(name);
+        return new ResponseEntity<>(product, HttpStatus.OK);
+    }
 
     @PostMapping("/add")
     public ResponseEntity<Product> addSpecProduct(@RequestBody Product product){
